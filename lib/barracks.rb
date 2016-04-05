@@ -33,6 +33,23 @@ class Barracks
     gold >= 90 && food >= 5
   end
 
+  def create_seige_engine
+    if can_create_seige_engine?
+      charge_price(200)
+      charge_lumber(60)
+      charge_food(3)
+      SeigeEngine.new
+    end
+  end
+
+  def can_create_seige_engine?
+    gold >= 200 && food >= 3 && lumber >= 60
+  end
+
+  def charge_lumber(lumber_cost)
+    @lumber -= lumber_cost
+  end
+
   def charge_price(price)
     @gold -= price
   end

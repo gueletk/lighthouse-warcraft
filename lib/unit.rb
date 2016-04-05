@@ -8,7 +8,12 @@ class Unit
   end
 
   def attack!(enemy)
-    enemy.damage(attack_power) if !enemy.dead? && !self.dead?
+    case enemy.class
+    when Barracks
+      enemy.damage(attack_power)
+    else
+      enemy.damage(attack_power) if !enemy.dead? && !self.dead?
+    end
   end
 
   def damage(enemy_attack_power)
