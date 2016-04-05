@@ -7,6 +7,13 @@ describe Barracks do
     expect(barracks.health_points).to eq(500)
   end
 
+  context "when Barracks is created" do
+    it "has 500 lumber" do
+      barracks = Barracks.new
+      expect(barracks.lumber).to eq(500)
+    end
+  end
+
 end
 
 describe Footman do
