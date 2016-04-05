@@ -27,4 +27,22 @@ describe Unit do
     expect(unit.dead?).to eq(false)
   end
 
+  it "will not attack a unit that is dead" do
+    alive_unit = Unit.new(100,10)
+    dead_unit = Unit.new(100,10)
+    expect(dead_unit).to receive(:dead?).and_return(true)
+    alive_unit.attack!(dead_unit)
+    expect(dead_unit.health_points).to eql(100)
+  end
+
+  context "when attacking unit is dead" do
+    it "will not do damage" do
+      alive_unit = Unit.new(100,10)
+      dead_unit = Unit.new(100,10)
+      expect(dead_unit).to receive(:dead?).and_return(true)
+      dead_unit.attack!(alive_unit)
+      expect(alive_unit.health_points).to eql(100)
+    end
+  end
+
 end

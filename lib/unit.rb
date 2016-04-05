@@ -8,7 +8,7 @@ class Unit
   end
 
   def attack!(enemy)
-    enemy.damage(attack_power)
+    enemy.damage(attack_power) if !enemy.dead? && !self.dead?
   end
 
   def damage(enemy_attack_power)
