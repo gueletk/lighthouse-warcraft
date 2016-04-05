@@ -19,3 +19,12 @@ describe Footman do
   end
 
 end
+
+describe Unit do
+
+  it "is not dead when created" do
+    unit = Unit.new(100, 10)
+    expect(unit.dead?).to eq(false)
+  end
+
+end

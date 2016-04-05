@@ -15,4 +15,8 @@ class Unit
     @health_points -= enemy_attack_power
   end
 
+  def dead?
+    health_points <= 0
+  end
+
 end
